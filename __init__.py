@@ -8,9 +8,6 @@ ini0 = os.path.join(os.path.dirname(__file__), 'styles.sample.ini')
 if os.path.isfile(ini0) and not os.path.isfile(ini):
     shutil.copyfile(ini0, ini)
 
-if app_api_version()<'1.0.145':
-    msg_box(MSG_ERROR, 'Plugin needs newer SynWrite')
-
 def set_sel_attribute(n, nlen, attribs):
     for (att_id, attrib_n) in attribs:
         ed.set_sel(n, nlen)
