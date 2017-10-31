@@ -1,0 +1,83 @@
+[info]
+title=Color Text
+desc=Allows to colorize text blocks, like Notepad++ "Style token"
+type=py-plugin
+subdir=syn_color_text
+
+[ini]
+section=Commands
+id=Color Text\Apply style 1
+params=color1;;;
+
+[ini1]
+section=Commands
+id=Color Text\Apply style 2
+params=color2;;;
+
+[ini2]
+section=Commands
+id=Color Text\Apply style 3
+params=color3;;;
+
+[ini3]
+section=Commands
+id=Color Text\Apply style 4
+params=color4;;;
+
+[ini4]
+section=Commands
+id=Color Text\Apply style 5
+params=color5;;;
+
+[ini5]
+section=Commands
+id=Color Text\Apply style 6
+params=color6;;;
+
+[ini6]
+section=Commands
+id=Color Text\-1
+params=-;;;
+
+
+[ini7]
+section=Commands
+id=Color Text\Apply bold
+params=format_bold;;;
+
+[ini8]
+section=Commands
+id=Color Text\Apply italic
+params=format_italic;;;
+
+[ini9]
+section=Commands
+id=Color Text\Apply underline
+params=format_underline;;;
+
+[ini10]
+section=Commands
+id=Color Text\-2
+params=-;;;
+
+
+[ini11]
+section=Commands
+id=Color Text\Clear selection styles
+params=clear_sel;;;
+
+[ini12]
+section=Commands
+id=Color Text\Clear all styles
+params=clear_all;;;
+
+[ini13]
+section=Commands
+id=Color Text\-3
+params=-;;;
+
+[ini14]
+section=Commands
+id=Color Text\Edit styles
+params=edit;;;
+

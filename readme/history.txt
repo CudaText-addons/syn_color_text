@@ -1,0 +1,7 @@
+0.7.0
++ini file
++styles(bold/italic/etc)
++command "Edit styles"
+
+0.2.0
+init
