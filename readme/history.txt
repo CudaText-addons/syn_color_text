@@ -1,3 +1,6 @@
+0.7.1
++all occurrences in a file
+
 0.7.0
 +ini file
 +styles(bold/italic/etc)
