@@ -12,8 +12,7 @@ if app_api_version()<'1.0.145':
     msg_box(MSG_ERROR, 'Plugin needs newer SynWrite')
 
 def set_sel_attribute(n, nlen, attribs):
-    for attrib_set in attribs:
-        att_id, attrib_n = attrib_set
+    for (att_id, attrib_n) in attribs:
         ed.set_sel(n, nlen)
         ed.set_attr(att_id, attrib_n)
 
@@ -41,11 +40,8 @@ def set_text_attribute(attribs):
                 set_sel_attribute(ind, len(word),attribs)
         ed.set_sel(n, nlen)
     else:
-      for attrib_set in attribs:
-          att_id, attrib_n = attrib_set
-          ed.set_sel(n, nlen)
-          ed.set_attr(int(att_id), int(attrib_n))
-        ed.set_attr(att_id, attrib_n)
+        for (att_id, attrib_n) in attribs:
+            ed.set_attr(att_id, attrib_n)
 
 def do_color(n):
     attribs = []
