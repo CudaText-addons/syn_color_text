@@ -1,10 +1,11 @@
-0.7.1
-+all occurrences in a file
 
-0.7.0
-+ini file
-+styles(bold/italic/etc)
-+command "Edit styles"
+2017.10.31
++ option to apply to all occurrences in a file
+
+0.7.0 (2014)
++ added ini file
++ commands to apply styles (bold/italic/etc)
++ command "Edit styles"
 
 0.2.0
 init
