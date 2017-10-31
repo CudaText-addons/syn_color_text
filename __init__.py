@@ -13,14 +13,13 @@ if app_api_version()<'1.0.145':
 
 def set_sel_attribute(n, nlen, attribs):
     for attrib_set in attribs:
-        att_id, attrib_n = attrib_set.split('|')
+        att_id, attrib_n = attrib_set
         ed.set_sel(n, nlen)
-        ed.set_attr(int(att_id), int(attrib_n))
+        ed.set_attr(att_id, attrib_n)
 
 def set_text_attribute(attribs):
-    allwords = ini_read(ini, 'setting', 'allwords', '0')
+    allwords = ini_read(ini, 'op', 'allwords', '0')
     if int(allwords) > 0:
-
         n, nlen = ed.get_sel()
         if nlen <= 0:
             carets = ed.get_carets()
@@ -42,6 +41,10 @@ def set_text_attribute(attribs):
                 set_sel_attribute(ind, len(word),attribs)
         ed.set_sel(n, nlen)
     else:
+      for attrib_set in attribs:
+          att_id, attrib_n = attrib_set
+          ed.set_sel(n, nlen)
+          ed.set_attr(int(att_id), int(attrib_n))
         ed.set_attr(att_id, attrib_n)
 
 def do_color(n):
@@ -49,13 +52,13 @@ def do_color(n):
     st = ini_read(ini, 'colors', str(n), '')
     if st:
         ncolor = HTMLColorToPILColor(st)
-        attribs.extend([str(ATTRIB_COLOR_BG)+'|'+str(ncolor)])
+        attribs.extend([(ATTRIB_COLOR_BG,ncolor)])
     st = ini_read(ini, 'styles', str(n), '')
     if st:
-        if 'b' in st: attribs.extend([str(ATTRIB_SET_BOLD)+'|'+str(0)])
-        if 'i' in st: attribs.extend([str(ATTRIB_SET_ITALIC)+'|'+str(0)])
-        if 'u' in st: attribs.extend([str(ATTRIB_SET_UNDERLINE)+'|'+str(0)])
-        if 's' in st: attribs.extend([str(ATTRIB_SET_STRIKEOUT)+'|'+str(0)])
+        if 'b' in st: attribs.extend([(ATTRIB_SET_BOLD,0)])
+        if 'i' in st: attribs.extend([(ATTRIB_SET_ITALIC,0)])
+        if 'u' in st: attribs.extend([(ATTRIB_SET_UNDERLINE,0)])
+        if 's' in st: attribs.extend([(ATTRIB_SET_STRIKEOUT,0)])
     if attribs:
         set_text_attribute(attribs)
 
@@ -68,16 +71,16 @@ class Command:
     def color6(self): do_color(6)
 
     def format_bold(self):
-        set_text_attribute([str(ATTRIB_SET_BOLD)+'|'+str(0)])
+        set_text_attribute([(ATTRIB_SET_BOLD,0)])
     def format_italic(self):
-        set_text_attribute([str(ATTRIB_SET_ITALIC)+'|'+str(0)])
+        set_text_attribute([(ATTRIB_SET_ITALIC,0)])
     def format_underline(self):
-        set_text_attribute([str(ATTRIB_SET_UNDERLINE)+'|'+str(0)])
+        set_text_attribute([(ATTRIB_SET_UNDERLINE,0)])
 
     def clear_all(self):
         ed.set_attr(ATTRIB_CLEAR_ALL, 0)
     def clear_sel(self):
-        set_text_attribute([str(ATTRIB_CLEAR_SELECTION)+'|'+str(0)])
+        set_text_attribute([(ATTRIB_CLEAR_SELECTION,0)])
 
     def edit(self):
         file_open(ini)
